@@ -33,7 +33,7 @@ list(set=set, get=get,setmatrix=setmatrix,getmatrix=getmatrix)
 ## If Inverse matrix exist in Cache, it is get from cache and showed with a message 
 ## If Inverse Matrix doesnt exist, it is calculated and setted in the object in cache for the next time when it could be retrieved
 
-cacheSolve <- function(x=matrix(), ...) {
+cacheSolve <- function(x, ...) {
 
 m<-x$getmatrix()
 if(!is.null(m)){
@@ -42,8 +42,8 @@ if(!is.null(m)){
   return(m)
 }
 
-matrix<-x$get()
-m<-solve(matrix,...)
+data<-x$get()
+m<-solve(data,...)
 x$setmatrix(m)
 m
 }
